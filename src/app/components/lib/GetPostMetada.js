@@ -1,14 +1,15 @@
 import fs from "fs";
+import path from "path";
 import matter from "gray-matter";
 
 const GetPostMetadata = async () => {
   try {
-    const folder = "./src/posts/";
+    const folder = path.join(process.cwd(), "./src/posts/");
     const files = await fs.promises.readdir(folder);
     const markdownPosts = files.filter((file) => file.endsWith(".md") || file.endsWith(".mdx"));
 
     const posts = await Promise.all(markdownPosts.map(async (fileName) => {
-      const fileContents = await fs.promises.readFile(`./src/posts/${fileName}`, "utf8");
+      const fileContents = await fs.promises.readFile(path.join(folder, fileName), "utf8");
       const matterResult = matter(fileContents);
       return {
         title: matterResult.data.title,
