@@ -1,0 +1,70 @@
+import fs from "fs";
+import Markdown from "markdown-to-jsx";
+import matter from "gray-matter";
+import GetPostMetadata from "@/app/components/lib/GetPostMetada";
+import Custom404 from "@/app/not-found";
+
+const getPostContent = (slug) => {
+  const folder = "./src/posts/";
+  const file = `${folder}${slug}.md`;
+
+  try {
+    const content = fs.readFileSync(file, "utf8");
+    const matterResult = matter(content);
+    return matterResult;
+  } catch (error) {
+    return null;
+  }
+};
+
+export const generateStaticParams = async () => {
+  const posts = GetPostMetadata();
+  return posts.map((post) => ({
+    slug: post.slug,
+  }));
+};
+
+const PostPage = (props) => {
+  const slug = props.params.slug;
+  const post = getPostContent(slug);
+
+  if (!post) {
+    return <Custom404 />;
+  }
+
+  return (
+    <div className="pt-28">
+      <div className=" pb-6">
+        <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-gray-200 text-center">
+          {post.data.title}
+        </h1>
+        <div className="flex items-center gap-2 justify-center text-sm">
+          <p className="text-gray-800/70 dark:text-gray-200/70 mt-2">
+            {post.data.minRead} menit membaca .
+          </p>
+          <p className="text-gray-800/70 dark:text-gray-200/70 mt-2">
+            {new Date(post.data.date).toLocaleDateString('id-ID', {
+              day: 'numeric',
+              month: 'long',
+              year: 'numeric',
+            })}
+          </p>
+        </div>
+      </div>
+      <article className="prose dark:prose-invert text-gray-900 dark:text-white/80">
+        <Markdown>{post.content}</Markdown>
+      </article>
+    </div>
+  );
+  
+};
+
+export const generateMetadata = (title) => {
+  const dynamicTitle = title.params.slug;
+  const cleanTitile = dynamicTitle.replace(/-/g, " ");
+  return {
+    title: `${cleanTitile}`,
+  };
+};
+
+export default PostPage;
