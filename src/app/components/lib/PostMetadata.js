@@ -3,5 +3,6 @@ export const PostMetadata = {
     subtitle: '',
     date: '',
     minRead: '',
+    category: '',
     slug: '',
   }

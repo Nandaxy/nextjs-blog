@@ -4,12 +4,12 @@ import matter from "gray-matter";
 import GetPostMetadata from "@/app/components/lib/GetPostMetada";
 import Custom404 from "@/app/not-found";
 
-const getPostContent = (slug) => {
+const getPostContent = async (slug) => {
   const folder = "./src/posts/";
   const file = `${folder}${slug}.md`;
 
   try {
-    const content = fs.readFileSync(file, "utf8");
+    const content = await fs.promises.readFile(file, "utf8");
     const matterResult = matter(content);
     return matterResult;
   } catch (error) {
@@ -18,15 +18,15 @@ const getPostContent = (slug) => {
 };
 
 export const generateStaticParams = async () => {
-  const posts = GetPostMetadata();
+  const posts = await GetPostMetadata();
   return posts.map((post) => ({
     slug: post.slug,
   }));
 };
 
-const PostPage = (props) => {
+const PostPage = async (props) => {
   const slug = props.params.slug;
-  const post = getPostContent(slug);
+  const post = await getPostContent(slug);
 
   if (!post) {
     return <Custom404 />;

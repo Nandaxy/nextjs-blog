@@ -1,13 +1,13 @@
 import GetPostMetadata from "@/app/components/lib/GetPostMetada";
 import PostPreview from "@/app/components/ui/posPreview";
 
-const SearchPage = ({ params }) => {
+const SearchPage = async ({ params }) => {
   const searchKeywords = params.slug
     .split("%20")
     .map((keyword) => keyword.toLowerCase());
   //   console.log(searchKeywords)
 
-  const allPostMetadata = GetPostMetadata();
+  const allPostMetadata = await GetPostMetadata();
 
   const filteredPostMetadata = allPostMetadata.filter((post) => {
     return searchKeywords.some(

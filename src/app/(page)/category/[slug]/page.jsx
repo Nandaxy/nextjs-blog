@@ -2,20 +2,20 @@ import GetPostMetadata from "@/app/components/lib/GetPostMetada";
 import PostPreview from "@/app/components/ui/posPreview";
 import Custom404 from "@/app/not-found";
 
-const CategoryPage = ({ params }) => {
+const CategoryPage = async ({ params }) => {
   const category = params.slug;
   //   console.log(category);
-  const postMetadata = GetPostMetadata()
-    .filter((post) => post.category.toLowerCase() === category)
-    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const postMetadata = await GetPostMetadata();
+  const filteredPostMetadata = postMetadata.filter((post) => post.category.toLowerCase() === category);
+  const sortedPostMetadata = filteredPostMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
 
   //   console.log(postMetadata);
 
-  if (postMetadata.length === 0) {
+  if (sortedPostMetadata.length === 0) {
     return <Custom404 />;
   }
 
-  const postPreviews = postMetadata.map((post) => (
+  const postPreviews = sortedPostMetadata.map((post) => (
     <PostPreview key={post.slug} {...post} />
   ));
 

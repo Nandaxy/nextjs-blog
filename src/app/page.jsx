@@ -1,10 +1,9 @@
 import GetPostMetadata from "./components/lib/GetPostMetada";
 import PostPreview from "./components/ui/posPreview";
 
-const HomePage = () => {
-  const postMetadata = GetPostMetadata().sort(
-    (a, b) => new Date(b.date) - new Date(a.date)
-  );
+const HomePage = async () => {
+  const postMetadata = await GetPostMetadata();
+  postMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
   const postPreviews = postMetadata.map((post) => (
     <PostPreview key={post.slug} {...post} />
   ));
