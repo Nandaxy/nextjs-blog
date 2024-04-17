@@ -12,7 +12,7 @@ const PostPreview = (props) => {
           {props.title}
         </h2>
       </Link>
-      <p className="text-black/70 dark:text-white/70">{props.subtitle}</p>
+      <p className="text-md text-black/70 dark:text-white/70">{props.subtitle}</p>
       <div className="flex justify-between items-center mt-2 text-sm text-black/60 dark:text-white/60">
         <Link href={`/category/${props.category.toLowerCase()}`} className="flex items-center hover:underline">
           <span className="mr-1">
@@ -26,7 +26,7 @@ const PostPreview = (props) => {
           </span>
           {props.category}
         </Link>
-        <p className=" text-right">{props.date}</p>
+        <p className=" text-right">{props.date.split('-').reverse().join('-')}</p>
       </div>
     </div>
   );

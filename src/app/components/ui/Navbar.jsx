@@ -155,6 +155,9 @@ const Navbar = () => {
                 <li>
                   <Link href="/category/makanan">Makanan</Link>
                 </li>
+                <li>
+                  <Link href="/category/cerita">Cerita</Link>
+                </li>
               </ul>
             </details>
           </li>
