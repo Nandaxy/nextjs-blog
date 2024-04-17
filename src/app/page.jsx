@@ -1,12 +1,10 @@
 import GetPostMetadata from "./components/lib/GetPostMetada";
-import PostPreview from "./components/ui/posPreview";
+import DisplayPost from "./components/ui/DisplayPost";
 
 const HomePage = async () => {
   const postMetadata = await GetPostMetadata();
   postMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
-  const postPreviews = postMetadata.map((post) => (
-    <PostPreview key={post.slug} {...post} />
-  ));
+  const dataPost = postMetadata
 
   return (
     <div className="pt-28">
@@ -15,9 +13,7 @@ const HomePage = async () => {
           Postingan Terbaru
         </h1>
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
-        {postPreviews}
-      </div>
+      <DisplayPost data={dataPost}/>
     </div>
   );
 };
