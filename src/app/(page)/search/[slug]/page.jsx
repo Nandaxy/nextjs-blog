@@ -1,5 +1,5 @@
-import GetPostMetadata from "@/app/components/lib/GetPostMetada";
-import PostPreview from "@/app/components/ui/posPreview";
+import GetPostMetadata from "@/libs/GetPostMetada";
+import PostPreview from "@/components/ui/posPreview";
 
 const SearchPage = async ({ params }) => {
   const searchKeywords = params.slug

@@ -13,4 +13,8 @@ const Custom404 = () => {
   );
 };
 
+export const metadata = {
+  title: "Page Not Found",
+};
+
 export default Custom404;

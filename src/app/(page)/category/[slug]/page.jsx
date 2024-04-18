@@ -1,5 +1,5 @@
-import GetPostMetadata from "@/app/components/lib/GetPostMetada";
-import DisplayPost from "@/app/components/ui/DisplayPost";
+import GetPostMetadata from "@/libs/GetPostMetada";
+import DisplayPost from "@/components/ui/DisplayPost";
 import Custom404 from "@/app/not-found";
 
 const CategoryPage = async ({ params }) => {

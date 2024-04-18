@@ -1,7 +1,8 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Navbar from "./components/ui/Navbar";
-import Footer from "./components/ui/Footer";
+import Navbar from "@/components/ui/Navbar";
+import Footer from "@/components/ui/Footer";
+import NextTopLoader from "nextjs-toploader";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -13,15 +14,16 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en">
-      <body className={inter.className}>
+      <body>
+        <NextTopLoader />
         <div className="bg-white dark:bg-bgDark text-gray-900 dark:text-white">
-        <Navbar/>
-        <div className="mx-auto max-w-2xl px-6 min-h-screen  bg-white dark:bg-bgDark">
-        {children}
+          <Navbar />
+          <div className="mx-auto max-w-2xl px-6 min-h-screen  bg-white dark:bg-bgDark">
+            {children}
+          </div>
+          <Footer />
         </div>
-        <Footer/>
-        </div>
-        </body>
+      </body>
     </html>
   );
 }

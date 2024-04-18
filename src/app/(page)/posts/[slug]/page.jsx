@@ -1,7 +1,7 @@
 import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
-import GetPostMetadata from "@/app/components/lib/GetPostMetada";
+import GetPostMetadata from "@/libs/GetPostMetada";
 import Custom404 from "@/app/not-found";
 
 const getPostContent = async (slug) => {
@@ -43,10 +43,10 @@ const PostPage = async (props) => {
             {post.data.minRead} menit membaca .
           </p>
           <p className="text-gray-800/70 dark:text-gray-200/70 mt-2">
-            {new Date(post.data.date).toLocaleDateString('id-ID', {
-              day: 'numeric',
-              month: 'long',
-              year: 'numeric',
+            {new Date(post.data.date).toLocaleDateString("id-ID", {
+              day: "numeric",
+              month: "long",
+              year: "numeric",
             })}
           </p>
         </div>
@@ -56,14 +56,21 @@ const PostPage = async (props) => {
       </article>
     </div>
   );
-  
 };
 
-export const generateMetadata = (title) => {
-  const dynamicTitle = title.params.slug;
-  const cleanTitile = dynamicTitle.replace(/-/g, " ");
+export const generateMetadata = async(slug) => {
+  const posts = await getPostContent(slug.params.slug);
+  if (!posts) {
+    return {
+      title: "Not Found",
+      description: "Data not found",
+    };
+  }
+
+  const metadata = posts.data;
   return {
-    title: `${cleanTitile}`,
+    title: `${metadata.title}`,
+    description: `${metadata.subtitle}`,
   };
 };
 

@@ -1,10 +1,10 @@
-import GetPostMetadata from "./components/lib/GetPostMetada";
-import DisplayPost from "./components/ui/DisplayPost";
+import GetPostMetadata from "@/libs/GetPostMetada";
+import DisplayPost from "@/components/ui/DisplayPost";
 
 const HomePage = async () => {
   const postMetadata = await GetPostMetadata();
   postMetadata.sort((a, b) => new Date(b.date) - new Date(a.date));
-  const dataPost = postMetadata
+  const dataPost = postMetadata;
 
   return (
     <div className="pt-28">
@@ -13,7 +13,7 @@ const HomePage = async () => {
           Postingan Terbaru
         </h1>
       </div>
-      <DisplayPost data={dataPost}/>
+      <DisplayPost data={dataPost} />
     </div>
   );
 };

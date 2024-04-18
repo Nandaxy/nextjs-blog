@@ -1,7 +1,7 @@
 ---
 title: "Zenn: Petualangan di Lautan yang Luas"
-subtitle: "Petualangan di Laut yang Legendaris"
-date: "2024-4-17"
+subtitle: "Cerita Petualangan di Laut yang Legendaris"
+date: "2024-4-18"
 minRead: "10"
 category: "Cerita"
 ---

@@ -1,19 +1,21 @@
 import Link from "next/link";
 
 const PostPreview = (props) => {
-  // console.log(props);
   return (
     <div
       className="border border-slate-300 dark:border-slate-700 p-4 rounded-md shadow-sm
     bg-white dark:bg-bgDark"
     >
+      <div>
       <Link href={`/posts/${props.slug}`}>
-        <h2 className="text-lg text-violet-500 hover:underline mb-2 mt-1">
+        <h2 className="text-lg text-violet-500 hover:underline mb-2 mt-1 truncate ">
           {props.title}
         </h2>
       </Link>
       <p className="text-md text-black/70 dark:text-white/70">{props.subtitle}</p>
-      <div className="flex justify-between items-center mt-2 text-sm text-black/60 dark:text-white/60">
+      </div>
+      {/* category and date */}
+      <div className="flex justify-between items-center pt-2 mb-auto text-sm text-black/60 dark:text-white/60">
         <Link href={`/category/${props.category.toLowerCase()}`} className="flex items-center hover:underline">
           <span className="mr-1">
             <svg
