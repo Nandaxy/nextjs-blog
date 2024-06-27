@@ -4,7 +4,7 @@ import GetPostMetadata from "@/libs/GetPostMetada";
 export default async function sitemap() {
   const post = await GetPostMetadata();
   const sitemaps = post.map((post) => ({
-    url: `${BASE_URL}/post/${post.slug}`,
+    url: `${BASE_URL}/posts/${post.slug}`,
     lastModified: new Date(post.date).toISOString(),
     changeFrequency: "weekly",
     priority: 0.8,
