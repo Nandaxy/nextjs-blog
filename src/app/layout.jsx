@@ -16,7 +16,7 @@ export default function RootLayout({ children }) {
     <html lang="en">
       <body>
         <NextTopLoader />
-        <div className="bg-white dark:bg-bgDark text-gray-900 dark:text-white">
+        <div className="bg-white dark:bg-bgDark text-gray-900 dark:text-white transition-all duration-300">
           <Navbar />
           <div className="mx-auto max-w-2xl px-6 min-h-screen  bg-white dark:bg-bgDark">
             {children}

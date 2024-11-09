@@ -7,7 +7,7 @@ import MenuCategory from "../navbar/MenuCategory";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 shadow shadow-black/10 dark:shadow-white/10 navbar bg-white dark:bg-bgDark">
+    <div className="fixed top-0 shadow shadow-black/10 dark:shadow-white/10 navbar bg-white dark:bg-bgDark z-30">
       <div className="flex-1">
         <Link href="/" className="btn btn-ghost text-xl dark:text-white">
           Zenn Blog
@@ -21,6 +21,9 @@ const Navbar = () => {
             <Link href="/">News</Link>
           </li>
           <li>
+            <Link href="/tags">Tags</Link>
+          </li>
+          <li className="hidden md:block">
             <details>
               <summary>Menu</summary>
               <MenuCategory />

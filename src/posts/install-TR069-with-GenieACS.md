@@ -1,9 +1,9 @@
 ---
 title: "Install TR069 with GenieACS"
-subtitle: "-"
-date: "2024-6-27"
-minRead: "8"
-category: "Teknologi"
+subtitle: "cara install TR069 dengan GenieACS dengan cara mudah"
+date: "2024-4-18"
+tags: [tr069, genieacs]
+thumbnail: "/images/install-tr069.png"
 ---
 
 ## Perisapan

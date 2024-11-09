@@ -1,4 +1,4 @@
-import GetPostMetadata from "@/libs/GetPostMetada";
+import GetPostMetadata from "@/libs/GetPostMetadata";
 import DisplayPost from "@/components/ui/DisplayPost";
 
 const HomePage = async () => {
@@ -8,8 +8,8 @@ const HomePage = async () => {
 
   return (
     <div className="pt-28">
-      <div className="px-2 pb-8">
-        <h1 className="text-2xl font-bold text-gray-700 dark:text-gray-100">
+      <div className="px-4 pb-8">
+        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
           Postingan Terbaru
         </h1>
       </div>

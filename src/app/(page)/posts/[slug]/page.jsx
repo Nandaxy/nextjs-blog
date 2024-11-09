@@ -1,7 +1,7 @@
 import fs from "fs";
 import Markdown from "markdown-to-jsx";
 import matter from "gray-matter";
-import GetPostMetadata from "@/libs/GetPostMetada";
+import GetPostMetadata from "@/libs/GetPostMetadata";
 import Custom404 from "@/app/not-found";
 
 const getPostContent = async (slug) => {
@@ -11,6 +11,13 @@ const getPostContent = async (slug) => {
   try {
     const content = await fs.promises.readFile(file, "utf8");
     const matterResult = matter(content);
+
+    if (!matterResult.data.minRead) {
+      const wordsPerMinute = 200;
+      const wordCount = matterResult.content.split(/\s+/).length;
+      matterResult.data.minRead = Math.ceil(wordCount / wordsPerMinute);
+    }
+
     return matterResult;
   } catch (error) {
     return null;
@@ -34,14 +41,15 @@ const PostPage = async (props) => {
 
   return (
     <div className="pt-28">
-      <div className=" pb-6">
+      <div className="pb-6">
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-gray-200 text-center">
           {post.data.title}
         </h1>
         <div className="flex items-center gap-2 justify-center text-sm">
           <p className="text-gray-800/70 dark:text-gray-200/70 mt-2">
-            {post.data.minRead} menit membaca .
+            {post.data.minRead} min read
           </p>
+          <span className="text-gray-800/70 dark:text-gray-200/70 mt-2">•</span>
           <p className="text-gray-800/70 dark:text-gray-200/70 mt-2">
             {new Date(post.data.date).toLocaleDateString("id-ID", {
               day: "numeric",
@@ -51,14 +59,14 @@ const PostPage = async (props) => {
           </p>
         </div>
       </div>
-      <article className="prose dark:prose-invert text-gray-900 dark:text-white/80">
+      <article className="prose dark:prose-invert">
         <Markdown>{post.content}</Markdown>
       </article>
     </div>
   );
 };
 
-export const generateMetadata = async(slug) => {
+export const generateMetadata = async (slug) => {
   const posts = await getPostContent(slug.params.slug);
   if (!posts) {
     return {

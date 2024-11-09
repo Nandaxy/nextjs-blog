@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 
 const SwicthTheme = () => {
   const [isDarkMode, setIsDarkMode] = useState(true);
-  
+
   const toggleDarkMode = () => {
     const newMode = !isDarkMode;
     setIsDarkMode(newMode);
@@ -19,9 +19,11 @@ const SwicthTheme = () => {
     if (theme === "dark") {
       setIsDarkMode(true);
       document.body.classList.add("dark");
+      document.documentElement.setAttribute("data-theme", "dark");
     } else {
       setIsDarkMode(false);
       document.body.classList.remove("dark");
+      document.documentElement.setAttribute("data-theme", "light");
     }
   }, [isDarkMode]);
 
