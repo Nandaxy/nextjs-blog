@@ -1,5 +1,5 @@
 import { BASE_URL } from "@/libs/constants";
-import GetPostMetadata from "@/libs/GetPostMetada";
+import GetPostMetadata from "@/libs/GetPostMetadata";
 
 export default async function sitemap() {
   const post = await GetPostMetadata();
