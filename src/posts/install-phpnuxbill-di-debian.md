@@ -6,6 +6,8 @@ tags: [debian, phpnuxbill]
 thumbnail: ""
 ---
 
+PHPNuxBill adalah aplikasi berbasis web untuk manajemen billing Hotspot dan PPPOE pada perangkat Mikrotik, dikembangkan menggunakan bahasa pemrograman PHP dan memanfaatkan API Mikrotik untuk komunikasi dengan router. [Github](https://github.com/hotspotbilling/phpnuxbill)
+
 ##  Persiapan 
 
 - Pastikan sudah mengatur repository Debian
