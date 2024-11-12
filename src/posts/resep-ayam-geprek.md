@@ -7,7 +7,9 @@ tags: ["Makanan", "Resep", "Indonesia"]
 thumbnail: "/images/ayam-geprek.jpg"
 ---
 
-![Ayam Geprek](/images/ayam-geprek.jpg)
+<p align="center">
+  <img src="/images/ayam-geprek.jpg" alt="Ayam Geprek" width="70%" />
+</p>
 
 Ayam geprek adalah salah satu makanan favorit di Indonesia. Makanan ini terkenal dengan tekstur ayam yang renyah dan bumbu yang lezat. Berikut adalah resep untuk membuat ayam geprek yang enak dan lezat.
 

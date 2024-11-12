@@ -26,6 +26,7 @@ const InputSearch = ({ type }) => {
       event.preventDefault();
       router.push(`/search/${keyword}`);
       document.getElementById("closeSearchModal").click();
+      searchRefMobi.current.blur()
     }
   };
 

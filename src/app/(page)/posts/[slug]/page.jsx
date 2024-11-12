@@ -40,7 +40,7 @@ const PostPage = async (props) => {
   }
 
   return (
-    <div className="pt-28">
+    <>
       <div className="pb-6">
         <h1 className="text-3xl md:text-4xl font-semibold text-gray-800 dark:text-gray-200 text-center">
           {post.data.title}
@@ -59,10 +59,10 @@ const PostPage = async (props) => {
           </p>
         </div>
       </div>
-      <article className="prose dark:prose-invert">
+      <article className="prose dark:prose-invert max-w-3xl">
         <Markdown>{post.content}</Markdown>
       </article>
-    </div>
+    </>
   );
 };
 

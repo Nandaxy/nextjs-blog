@@ -20,13 +20,13 @@ const SearchPage = async ({ params }) => {
 
   if (filteredPostMetadata.length === 0) {
     return (
-      <div className="pt-28">
+      <>
         <div className="px-2 pb-8">
           <h1 className="text-2xl font-bold text-gray-700 dark:text-gray-100">
             Postingan Tidak Ditemukan!
           </h1>
         </div>
-      </div>
+      </>
     );
   }
 
@@ -35,7 +35,7 @@ const SearchPage = async ({ params }) => {
   ));
 
   return (
-    <div className="pt-28">
+    <>
       <div className="px-2 pb-8">
         <div className="flex items-center">
           <span className="mr-2">
@@ -60,7 +60,7 @@ const SearchPage = async ({ params }) => {
       <div className="grid grid-cols-1 md:grid-cols-2 gap-4 ">
         {postPreviews}
       </div>
-    </div>
+    </>
   );
 };
 

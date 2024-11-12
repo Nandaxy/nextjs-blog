@@ -7,8 +7,8 @@ import MenuCategory from "../navbar/MenuCategory";
 
 const Navbar = () => {
   return (
-    <div className="fixed top-0 shadow shadow-black/10 dark:shadow-white/10 navbar bg-white dark:bg-bgDark z-30">
-      <div className="flex-1">
+    <div className="fixed top-0 shadow shadow-black/10 dark:shadow-white/10 navbar bg-white dark:bg-bgDark z-50">
+      <div className="flex-1 ml-10 lg:ml-0">
         <Link href="/" className="btn btn-ghost text-xl dark:text-white">
           Zenn Blog
         </Link>

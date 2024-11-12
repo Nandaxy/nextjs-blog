@@ -11,7 +11,7 @@ const PostPreview = ({ slug, title, subtitle, tags, date, thumbnail }) => {
         <Link href={`/posts/${slug}`}>
           <div className="aspect-video overflow-hidden rounded-md">
             <Image
-              src={thumbnail ? thumbnail : "/images/zenn-ocean-adventure.jpg"}
+              src={thumbnail ? thumbnail : "/asset/vvvv.png"}
               alt={title}
               width={640}
               height={360}

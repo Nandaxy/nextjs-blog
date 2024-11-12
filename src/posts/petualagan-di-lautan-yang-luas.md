@@ -3,9 +3,12 @@ title: "Zenn: Petualangan di Lautan yang Luas"
 subtitle: "Cerita Petualangan di Laut yang Legendaris"
 date: "2024-4-18"
 tags: ["story"]
+thumbnail: "/images/zenn-ocean-adventure.jpg"
 ---
 
-![Zenn's Epic Ocean Adventure](/images/zenn-ocean-adventure.jpg)
+<p align="center">
+  <img src="/images/zenn-ocean-adventure.jpg" alt="Ayam Geprek" width="50%" height="auto" />
+</p>
 
 Di lautan yang luas dan misterius, terdapat sebuah pulau legendaris yang konon menyimpan harta karun yang tak ternilai. Namun, pulau itu telah hilang dari peta selama berabad-abad. Zenn, seorang pria berhati pemberani dan berani, telah mendengar cerita tentang keberadaan pulau itu sejak kecil. Dia bermimpi untuk menemukan pulau itu dan mengungkap rahasia-rahasianya.
 

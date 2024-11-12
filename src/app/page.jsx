@@ -1,5 +1,6 @@
 import GetPostMetadata from "@/libs/GetPostMetadata";
 import DisplayPost from "@/components/ui/DisplayPost";
+import RandomPostRecommendations from "@/components/RandomPostRecommendations";
 
 const HomePage = async () => {
   const postMetadata = await GetPostMetadata();
@@ -7,14 +8,16 @@ const HomePage = async () => {
   const dataPost = postMetadata;
 
   return (
-    <div className="pt-28">
+    <>
       <div className="px-4 pb-8">
-        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100">
+        <h1 className="text-2xl font-bold text-gray-800 dark:text-gray-100 flex items-center">
+          <div className="badge badge-secondary badge-outline mr-1">NEW </div>
           Postingan Terbaru
         </h1>
       </div>
       <DisplayPost data={dataPost} />
-    </div>
+      <RandomPostRecommendations />
+    </>
   );
 };
 
