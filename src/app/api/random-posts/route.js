@@ -5,5 +5,10 @@ export async function GET(request) {
   const allPosts = await GetPostMetadata();
   const shuffled = allPosts.sort(() => 0.5 - Math.random());
   const selected = shuffled.slice(0, 3);
-  return NextResponse.json(selected);
+  
+  return NextResponse.json(selected, {
+    headers: {
+      'Cache-Control': 'no-store, max-age=0',
+    },
+  });
 }

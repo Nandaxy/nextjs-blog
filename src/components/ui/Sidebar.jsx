@@ -176,7 +176,7 @@ export default function Sidebar() {
       </button>
 
       <div
-        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform pt-20 md:overflow-y-auto border-r border-gray-200 dark:border-gray-800 ${
+        className={`fixed top-0 left-0 z-40 w-64 h-screen transition-transform pt-20 md:overflow-y-hidden border-r border-gray-200 dark:border-gray-800 ${
           isOpen || !isMobile ? "translate-x-0" : "-translate-x-full"
         } lg:translate-x-0 bg-white dark:bg-bgDark p-4 overflow-y-auto`}
       >
